@@ -3,7 +3,6 @@ import pandas as pd
 
 conn = sqlite3.connect('retail.db')
 
-# ── Query 1: Monthly revenue with running total ────────────────
 q1 = """
 SELECT
     Month,
@@ -14,7 +13,6 @@ GROUP BY Month
 ORDER BY Month;
 """
 
-# ── Query 2: Top 10 customers by lifetime value ────────────────
 q2 = """
 SELECT
     "Customer ID",
@@ -27,7 +25,6 @@ ORDER BY lifetime_value DESC
 LIMIT 10;
 """
 
-# ── Query 3: Top product per country (CTE) ────────────────────
 q3 = """
 WITH product_country AS (
     SELECT
@@ -44,7 +41,7 @@ ORDER BY revenue DESC
 LIMIT 10;
 """
 
-# ── Query 4: Top 20% customers revenue contribution ───────────
+# Query 4: Top 20% customers revenue contribution 
 q4 = """
 WITH customer_rev AS (
     SELECT "Customer ID", SUM(TotalPrice) AS rev
@@ -61,7 +58,6 @@ FROM (
 );
 """
 
-# ── Run all & print results ────────────────────────────────────
 queries = {
     "Monthly Revenue Trend"         : q1,
     "Top 10 Customers by LTV"       : q2,
@@ -76,7 +72,7 @@ for title, query in queries.items():
     df = pd.read_sql_query(query, conn)
     print(df.to_string(index=False))
 
-# ── Export results to CSV ──────────────────────────────────────
+# Export results to CSV
 pd.read_sql_query(q1, conn).to_csv('exports/monthly_revenue_sql.csv',   index=False)
 pd.read_sql_query(q2, conn).to_csv('exports/top_customers.csv',         index=False)
 pd.read_sql_query(q3, conn).to_csv('exports/top_product_country.csv',   index=False)
