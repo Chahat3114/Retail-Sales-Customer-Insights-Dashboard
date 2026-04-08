@@ -16,7 +16,6 @@ An end-to-end data analytics project analyzing 500K+ retail transactions to unco
 | Version Control | Git, GitHub |
 
 ---
-
 ## Project Structure
 
 ```
