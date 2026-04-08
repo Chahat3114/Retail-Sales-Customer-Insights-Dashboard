@@ -2,7 +2,7 @@
 
 An end-to-end data analytics project analyzing 500K+ retail transactions to uncover revenue trends, customer segments, and product performance — built with Python, SQL, and Power BI.
 
-![Dashboard](exports/dashboard_screenshot_png.png)
+![Dashboard](exports/dashboard.png)
 
 ---
 
