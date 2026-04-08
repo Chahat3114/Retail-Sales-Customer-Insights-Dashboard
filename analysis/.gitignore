@@ -1,0 +1,9 @@
+# Ignore large data files
+data/retail_data.csv
+data/clean_data.csv
+
+# Ignore database file
+retail.db
+
+# Ignore Power BI temp files
+*.pbix.lock
